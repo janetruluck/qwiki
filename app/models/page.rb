@@ -1,0 +1,3 @@
+class Page < ActiveRecord::Base
+  attr_accessible :author, :content, :title
+end
