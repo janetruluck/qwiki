@@ -21,7 +21,7 @@
     <td><%= distance_of_time_in_words(page.created_at, Time.now) %> ago</td>
     <td class="small"><%= link_to 'View', page, :class => "button grey" %></td>
     <td class="small"><%= link_to 'Edit', edit_page_path(page), :class => "button grey" %></td>
-    <td class="small"><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button grey danger" unless page.id == 2 %></td>
+    <td class="small"><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button grey danger" unless page.id == Page.find_by_title("How To Use").id %></td>
   </tr>
 <% end %>
 </table>

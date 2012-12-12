@@ -3,6 +3,6 @@
   <div class="form-actions">
     <%= link_to 'Home', root_path, :class => "button grey" %>
     <%= link_to 'Pages', pages_path, :class => "button grey" %>
-    <%= link_to 'How to Use', page_path(2), :class => "button grey" %>
+    <%= link_to 'How to Use', page_path(Page.find_by_title("How To Use").id), :class => "button grey" %>
   </div>
 </section>
