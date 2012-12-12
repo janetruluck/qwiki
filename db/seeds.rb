@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Page.create(
+  :title => "How To Use",
+  :author => "Jason Truluck",
+  :content => "#Formatting Text\r\n---------\r\n#####Headers\r\n\r\n```\r\n# This is an <h1> tag\r\n## This is an <h2> tag\r\n###### This is an <h6> tag\r\n```\r\n#####Text Styles\r\n\r\n```\r\n*This text will be italic*\r\n_This will also be italic_\r\n**This text will be bold**\r\n__This will also be bold__\r\n\r\n*You **can** combine them*\r\n```\r\n\r\n#Lists\r\n------\r\n#####Unordered\r\n```\r\n* Item 1\r\n* Item 2\r\n  * Item 2a\r\n  * Item 2b\r\n```\r\n\r\n#####Ordered\r\n```\r\n1. Item 1\r\n2. Item 2\r\n3. Item 3\r\n   * Item 3a\r\n   * Item 3b\r\n```\r\n#Miscellaneous\r\n-----\r\n#####Images\r\n```\r\n![GitHub Logo](/images/logo.png)\r\n\r\nFormat: ![Alt Text](url)\r\n```\r\n\r\n#####Links\r\n```\r\n[I'm an inline-style link](https://www.google.com)\r\n\r\n[I'm a reference-style link][Arbitrary case-insensitive reference text]\r\n\r\n[You can use numbers for reference-style link definitions][1]\r\n\r\nOr leave it empty and use the [link text itself][]\r\n\r\nSome text to show that the reference links can follow later.\r\n\r\n[arbitrary case-insensitive reference text]: https://www.mozilla.org\r\n[1]: http://slashdot.org\r\n[link text itself]: http://www.reddit.com\r\n```\r\n\r\n#####Blockquotes\r\n```\r\n> Blockquotes are very handy in email to emulate reply text.\r\n> This line is part of the same quote.\r\n\r\nQuote break.\r\n\r\n> More Quotes\r\n```\r\n"
+)
