@@ -1,0 +1,21 @@
+.formtastic{
+  .button{
+    float:none;
+    padding-right:15px;
+  }
+  .input{
+    .label{
+      width:7%;
+    }
+  }
+  .stringish{
+    input{
+      width:92%;
+    }
+  }
+  .text{
+    textarea{
+      width:92%;
+    }
+  }
+}
