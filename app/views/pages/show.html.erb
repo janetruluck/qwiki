@@ -1,20 +1,18 @@
 <p id="notice"><%= notice %></p>
+<% title @page.title %>
+By: <%= @page.author %> | Last Updated: <%= time_tag(@page.updated_at) %>
+<div class="form-actions">
+  <%= link_to 'Back', pages_path, :class => "button grey" %>
+  <%= link_to 'Edit', edit_page_path(@page), :class => "button green" %>
+</div>
+<hr/>
 
 <p>
-  <b>Title:</b>
-  <%= @page.title %>
-</p>
-
-<p>
-  <b>Author:</b>
-  <%= @page.author %>
-</p>
-
-<p>
-  <b>Content:</b>
   <%= markdown @page.content %>
 </p>
 
-
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<hr/>
+<div class="form-actions">
+  <%= link_to 'Back', pages_path, :class => "button grey" %>
+  <%= link_to 'Edit', edit_page_path(@page), :class => "button green" %>
+</div>
