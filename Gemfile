@@ -15,7 +15,7 @@ end
 
 group :development do
   gem 'nifty-generators'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'rb-fsevent'
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-livereload'
