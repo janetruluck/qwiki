@@ -4,6 +4,12 @@
   <%= link_to 'New Page', new_page_path, :class => "button green" %>
 </div>
 
+<% if Page.all.empty? %>
+  <div class="empty">
+    Click Here to Add Your First Page!
+  </div>
+<% end %>
+
 <table>
   <tr>
     <th>Title</th>
@@ -21,7 +27,7 @@
     <td><%= distance_of_time_in_words(page.created_at, Time.now) %> ago</td>
     <td class="small"><%= link_to 'View', page, :class => "button grey" %></td>
     <td class="small"><%= link_to 'Edit', edit_page_path(page), :class => "button grey" %></td>
-    <td class="small"><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button grey danger" unless page.id == Page.find_by_title("How To Use").id %></td>
+    <td class="small"><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button grey danger" %></td>
   </tr>
 <% end %>
 </table>
