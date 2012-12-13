@@ -1,7 +1,5 @@
-*{
-  font-family: Arial, Helvetica, sans-serif;
-}
 html{
+  font-family: Arial, Helvetica, sans-serif;
   background-color: whiteSmoke;
   a{
     line-height:25px;
@@ -24,6 +22,12 @@ html{
     background: white;
     -webkit-box-shadow: inset 0px 0px 1px 1px #a8a8a8;
     box-shadow: inset 0px 0px 1px 1px #a8a8a8;
+    .highlight{
+      font-family: "Courier New";
+      background-color: #3D3D29;
+      padding: 5px;
+      border: 2px solid black;
+    }
   }
   .clear{
     clear:both;
