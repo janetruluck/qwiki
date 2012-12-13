@@ -1,9 +1,9 @@
-#Qwiki
+#Qwiki [![Build Status](https://travis-ci.org/jasontruluck/qwiki.png)](https://travis-ci.org/jasontruluck/qwiki)
 ======
 
 Hi! Welcome to Qwiki, a super small, super fast wiki tool. The goal of Qwiki is to provide a no hassle solution for internal Wiki pages.
 
-Clone the repo and run it locally or go to [the test app](http://qwiki.herokuapps.com) and try is out!
+Clone the repo and run it locally or go to [the test app](http://qwiki.herokuapp.com) and try is out!
 
 #Note on Patches/Pull Requests
 ======
