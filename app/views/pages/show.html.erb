@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<% title @page.title %>
+<h1><%= @page.title %></h1>
 By: <%= @page.author %> | Last Updated: <%= time_tag(@page.updated_at) %>
 <div class="form-actions">
   <%= link_to 'Back', pages_path, :class => "button grey" %>
