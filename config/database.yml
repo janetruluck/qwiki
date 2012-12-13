@@ -43,7 +43,7 @@ test:
   encoding: unicode
   database: qwiki_test
   pool: 5
-  username: deploy
+  username: postgres
   password:
 
 production:
