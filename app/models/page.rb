@@ -1,5 +1,8 @@
 class Page < ActiveRecord::Base
-  attr_accessible :author, :content, :title
+  attr_accessible :user_id, :content, :title
 
-  validates :title, :author, :content, :presence => true
+  validates :title, :content, :presence => true
+
+  belongs_to :user
+  has_many :histories
 end

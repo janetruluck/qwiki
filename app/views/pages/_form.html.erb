@@ -10,11 +10,9 @@
       </ul>
     </div>
   <% end %>
-
-
   <%= f.inputs do %>
+    <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
     <%= f.input :title %>
-    <%= f.input :author %>
     <%= f.input :content %>
   <% end %>
   <div class="form-actions">

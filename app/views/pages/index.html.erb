@@ -10,28 +10,22 @@
   </div>
 <% end %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Created</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @pages.each do |page| %>
-  <tr>
-    <td><%= page.title %></td>
-    <td><%= page.author %></td>
-    <td><%= distance_of_time_in_words(page.created_at, Time.now) %> ago</td>
-    <td class="small"><%= link_to 'View', page, :class => "button grey" %></td>
-    <td class="small"><%= link_to 'Edit', edit_page_path(page), :class => "button grey" %></td>
-    <td class="small"><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button grey danger" %></td>
-  </tr>
+<div class="page">
+  <%= image_tag Gravatar.new(page.user.email).image_url %><br/>
+  <table class="details">
+    <tr><td><b>Title:</b></td><td><%= page.title %></td></tr>
+    <tr><td><b>Author:</b></td><td><%= page.user.full_name %><br/></td></tr>
+    <tr><td><b>Created:</b></td><td><%= distance_of_time_in_words(page.created_at, Time.now) %> ago</td></tr>
+  </table>
+  <div class="actions">
+    <%= link_to 'View', page, :class => "button grey" %>
+    <%= link_to 'Edit', edit_page_path(page), :class => "button grey" %>
+    <%= link_to 'Remove', page, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button grey danger" %>
+  </div>
+  <div class="clear"></div>
+</div>
 <% end %>
-</table>
-
 <br />
 
 <div class="form-actions">

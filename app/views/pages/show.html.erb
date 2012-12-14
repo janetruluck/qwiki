@@ -1,18 +1,18 @@
-<p id="notice"><%= notice %></p>
-<h1><%= @page.title %></h1>
-By: <%= @page.author %> | Last Updated: <%= time_tag(@page.updated_at) %>
-<div class="form-actions">
-  <%= link_to 'Back', pages_path, :class => "button grey" %>
-  <%= link_to 'Edit', edit_page_path(@page), :class => "button green" %>
+<div class="page">
+  <%= image_tag Gravatar.new(@page.user.email).image_url %><br/>
+  <table class="details">
+    <tr><td><b>Title:</b></td><td><%= @page.title %></td></tr>
+    <tr><td><b>Author:</b></td><td><%= @page.user.full_name %><br/></td></tr>
+    <tr><td><b>Created:</b></td><td><%= distance_of_time_in_words(@page.created_at, Time.now) %> ago</td></tr>
+  </table>
+  <div class="actions">
+    <%= link_to 'Back', pages_path, :class => "button grey" %>
+    <%= link_to 'Edit', edit_page_path(@page), :class => "button green" %>
+  </div>
+  <div class="clear"></div>
 </div>
 <hr/>
-
 <p>
   <%= markdown @page.content %>
 </p>
 
-<hr/>
-<div class="form-actions">
-  <%= link_to 'Back', pages_path, :class => "button grey" %>
-  <%= link_to 'Edit', edit_page_path(@page), :class => "button green" %>
-</div>
