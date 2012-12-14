@@ -4,5 +4,5 @@ class Page < ActiveRecord::Base
   validates :title, :content, :presence => true
 
   belongs_to :user
-  has_many :histories
+  has_many :histories, :dependent => :destroy
 end

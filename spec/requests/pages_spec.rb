@@ -63,7 +63,20 @@ describe "Page" do
 
         current_path.should == page_path(Page.first)
       end
+
+      it "creats a history item when a page is created" do
+        visit new_page_path
+
+        fill_in("page_title", :with => "Super Title")
+        fill_in("page_content", :with => "#Some Awesome Markdown\r\n###Smaller Title")
+        click_button("Submit")
+
+        page = Page.first.histories
+        page.should_not be_empty
+        page.first.note.should == "Initial Creation"
+      end
     end
+
 
     context "errors" do
       it "redirects a user back to the form" do
@@ -112,6 +125,23 @@ describe "Page" do
         page.should have_content("1 error prohibited this page from being saved")
 
         current_path.should == page_path(entry)
+      end
+    end
+  end
+
+  describe "history" do
+    context "given there is history" do
+      it "displays the history of the page" do
+        visit new_page_path
+
+        fill_in("page_title", :with => "Super Title")
+        fill_in("page_content", :with => "#Some Awesome Markdown\r\n###Smaller Title")
+        click_button("Submit")
+
+        click_link("History")
+
+        page.should have_content("Initial Creation")
+        page.should have_content(user.full_name)
       end
     end
   end

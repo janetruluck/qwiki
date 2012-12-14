@@ -7,6 +7,7 @@
   </table>
   <div class="actions">
     <%= link_to 'Back', pages_path, :class => "button grey" %>
+    <%= link_to 'History', history_page_path(@page.id), :class => "button grey" %>
     <%= link_to 'Edit', edit_page_path(@page), :class => "button green" %>
   </div>
   <div class="clear"></div>

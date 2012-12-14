@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th></th>
+    <th>Who</th>
+    <th>What</th>
+    <th>When</th>
+  </tr>
+  <% @histories.each do |history| %>
+    <tr>
+      <th><%= image_tag Gravatar.new(history.user.email).image_url %></td>
+      <th><%= history.user.full_name %></th>
+      <th><%= history.note %></th>
+      <th><%= distance_of_time_in_words(history.created_at, Time.now) %> ago</th>
+    </tr>
+  <% end %>
+</table>

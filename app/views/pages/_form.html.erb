@@ -10,11 +10,19 @@
       </ul>
     </div>
   <% end %>
+
   <%= f.inputs do %>
     <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
     <%= f.input :title %>
     <%= f.input :content %>
   <% end %>
+
+  <% if controller.action_name == "edit" %>
+    <%= f.inputs :for => :history do |history| %>
+      <%= history.input :note, :placeholder => "Please leave a note about what you changed." %>
+    <% end %>
+  <% end %>
+
   <div class="form-actions">
     <%= link_to 'Cancel', pages_path, :class => "button grey danger"%>
     <%= f.button "Submit", :class => "button green" %>

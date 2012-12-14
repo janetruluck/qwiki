@@ -41,6 +41,11 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
+        History.create(
+          :page_id => @page.id,
+          :user_id => @page.user.id,
+          :note => "Initial Creation",
+          :current_content => @page.content)
         format.html { redirect_to @page, notice: 'Page was successfully created.' }
       else
         format.html { render action: "new" }
@@ -53,8 +58,16 @@ class PagesController < ApplicationController
   def update
     @page = Page.find(params[:id])
 
+    history = History.create(
+              :page_id          => @page.id,
+              :user_id          => @page.user.id,
+              :note             => params[:page][:history][:note],
+              :previous_content => @page.content)
+    params["page"].delete(:history)
+
     respond_to do |format|
       if @page.update_attributes(params[:page])
+        history.update_attributes(:current_content => @page.content)
         format.html { redirect_to @page, notice: 'Page was successfully updated.' }
       else
         format.html { render action: "edit" }
@@ -70,6 +83,14 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to pages_url }
+    end
+  end
+
+  def history
+    @histories = History.where(:page_id => params[:id])
+
+    respond_to do |format|
+      format.html
     end
   end
 end
