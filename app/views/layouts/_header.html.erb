@@ -1,8 +1,11 @@
 <section id="header">
   <h3>Qwiki</h3>|<b>the qwik wiki</b>
-  <div class="form-actions">
-    <%= link_to 'Home', root_path, :class => "button grey" %>
-    <%= link_to 'Pages', pages_path, :class => "button grey" %>
-    <%= link_to 'How to Use', homes_help_path, :class => "button grey" %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="form-actions">
+      <%= link_to 'Home', root_path, :class => "button grey" %>
+      <%= link_to 'Pages', pages_path, :class => "button grey" %>
+      <%= link_to 'How to Use', homes_help_path, :class => "button grey" %>
+      <%= link_to 'Logout', destroy_user_session_path, :class => "button grey danger" %>
+    </div>
+  <% end %>
 </section>
