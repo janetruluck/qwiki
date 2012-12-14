@@ -6,6 +6,8 @@ gem 'pygments.rb'
 gem 'redcarpet'
 gem 'formtastic'
 gem 'jquery-rails'
+gem 'devise'
+gem 'gravatar-ultimate'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -22,12 +24,15 @@ group :development do
   gem 'guard-bundler'
 end
 
+group :development, :test do
+  gem 'factory_girl_rails'
+end
+
 group :test do
   gem 'cane'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'simplecov', :require => false
