@@ -8,6 +8,7 @@ gem 'formtastic'
 gem 'jquery-rails'
 gem 'devise'
 gem 'gravatar-ultimate'
+gem 'diffy'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -22,6 +23,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'guard-bundler'
+  gem 'thin'
 end
 
 group :development, :test do
