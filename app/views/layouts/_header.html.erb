@@ -1,12 +1,23 @@
 <section id="header">
-  <h3>Qwiki</h3>|<b>the qwik wiki</b>
-  <img src="https://travis-ci.org/jasontruluck/qwiki.png"/>
-  <% if user_signed_in? %>
-    <div class="form-actions">
-      <%= link_to 'Home', root_path, :class => "button grey" %>
-      <%= link_to 'Pages', pages_path, :class => "button grey" %>
-      <%= link_to 'How to Use', homes_help_path, :class => "button grey" %>
-      <%= link_to 'Logout', destroy_user_session_path, :class => "button grey danger" %>
-    </div>
-  <% end %>
+  <div class="wrapper">
+    <h3><a href="<%= root_path %>">Qwiki</a></h3>
+    <img src="https://travis-ci.org/jasontruluck/qwiki.png"/>
+    <% if user_signed_in? %>
+      <div class="form-actions">
+        <%= link_to 'Home', root_path, :class => "button grey" %>
+        <%= link_to 'Pages', pages_path, :class => "button grey" %>
+        <%= link_to 'How to Use', homes_help_path, :class => "button grey" %>
+        <%= link_to 'Logout', destroy_user_session_path, :class => "button grey danger" %>
+      </div>
+    <% else %>
+      <div class="form-actions">
+      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <%= link_to "Sign up", new_registration_path(resource_name), :class => "button green" %>
+      <% end -%>
+      <%- if controller_name != 'sessions' %>
+        <%= link_to "Sign in", new_session_path(resource_name), :class => "button grey" %>
+      <% end -%>
+      </div>
+    <% end %>
+  </div>
 </section>
