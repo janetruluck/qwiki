@@ -2,7 +2,7 @@
   &.pages{
     div{
       &.page{
-        border: 2px solid #a9a9a9;
+        border: 1px solid #a9a9a9;
         background-color: whiteSmoke;
         border-radius: 5px;
         margin-top: 10px;
@@ -27,6 +27,9 @@
         position: relative;
         text-shadow: 0 1px rgba(255, 255, 255, 0.9);
         color: #666;
+      }
+      &.history{
+        width: 100%;
       }
       tr{
         th{

@@ -9,9 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require reset-min
  *= require formtastic
  *= require pygments
  *= require defaults
  *= require pages
+ *= require sessions
  *= require formtastic-overrides
  */
