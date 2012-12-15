@@ -87,6 +87,7 @@ class PagesController < ApplicationController
   end
 
   def history
+    @page = Page.find(params[:id])
     @histories = History.where(:page_id => params[:id])
 
     respond_to do |format|
