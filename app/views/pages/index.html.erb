@@ -1,33 +1,35 @@
-<h1>Pages Directory</h1>
+<h2 class="title-bar">
+  Pages Directory
+  <%= link_to 'New Page', new_page_path, :class => "button green right" %>
+</h2>
 
-<div class="form-actions">
-  <%= link_to 'New Page', new_page_path, :class => "button green" %>
-</div>
-
-<% if Page.all.empty? %>
-  <div class="empty">
-    Click Here to Add Your First Page!
-  </div>
-<% end %>
-
-<% @pages.each do |page| %>
-<div class="page">
-  <%= image_tag Gravatar.new(page.user.email).image_url %><br/>
-  <table class="details">
-    <tr><td><b>Title:</b></td><td><%= page.title %></td></tr>
-    <tr><td><b>Author:</b></td><td><%= page.user.full_name %><br/></td></tr>
-    <tr><td><b>Created:</b></td><td><%= distance_of_time_in_words(page.created_at, Time.now) %> ago</td></tr>
-  </table>
-  <div class="actions">
-    <%= link_to 'View', page, :class => "button grey" %>
-    <%= link_to 'Edit', edit_page_path(page), :class => "button grey" %>
-    <%= link_to 'Remove', page, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button grey danger" %>
-  </div>
-  <div class="clear"></div>
-</div>
-<% end %>
-<br />
-
-<div class="form-actions">
-  <%= link_to 'New Page', new_page_path, :class => "button green" %>
+<div class="contents">
+  <% if Page.all.empty? %>
+    <div class="empty">
+      Click Here to Add Your First Page!
+    </div>
+  <% else %>
+    <ul id="directory" class="sub-list">
+    <% @pages.each do |page| %>
+      <li>
+      <%= image_tag Gravatar.new(page.user.email).image_url %>
+      <div class="information">
+        <div class="title">
+          <%= link_to page.title, page %>
+        </div>
+        <div class="details">
+          By: <%= page.user.full_name %>, authored on
+          <%= time_tag(page.created_at) %>
+        </div>
+      </div>
+      <div class="actions">
+        <%= link_to 'View', page, :class => "button grey" %>
+        <%= link_to 'Edit', edit_page_path(page), :class => "button grey" %>
+        <%= link_to 'Remove', page, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button grey danger" %>
+      </div>
+      <div class ="clear">
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
 </div>

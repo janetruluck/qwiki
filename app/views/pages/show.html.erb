@@ -1,18 +1,23 @@
-<div class="page">
-  <%= image_tag Gravatar.new(@page.user.email).image_url %><br/>
-  <table class="details">
-    <tr><td><b>Title:</b></td><td><%= @page.title %></td></tr>
-    <tr><td><b>Author:</b></td><td><%= @page.user.full_name %><br/></td></tr>
-    <tr><td><b>Created:</b></td><td><%= distance_of_time_in_words(@page.created_at, Time.now) %> ago</td></tr>
-  </table>
+<h2 class="title-bar">
+  <%= image_tag Gravatar.new(@page.user.email).image_url %>
+  <div>
+    <div class="information" >
+      <div class="title" >
+        <%= @page.title %>
+      </div>
+      <div class="details">
+        By: <%= @page.user.full_name %>, authored <%= distance_of_time_in_words(@page.created_at, Time.now) %> ago
+      </div>
+    </div>
+  </div>
   <div class="actions">
-    <%= link_to 'Back', pages_path, :class => "button grey" %>
+    <%= link_to 'Edit', edit_page_path(@page), :class => "button grey danger" %>
     <%= link_to 'History', history_page_path(@page.id), :class => "button grey" %>
-    <%= link_to 'Edit', edit_page_path(@page), :class => "button green" %>
+    <%= link_to 'Back', pages_path, :class => "button grey" %>
   </div>
   <div class="clear"></div>
-</div>
-<p>
+</h2>
+<div class="contents">
   <%= markdown @page.content %>
-</p>
+</div>
 

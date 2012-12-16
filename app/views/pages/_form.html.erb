@@ -24,7 +24,11 @@
   <% end %>
 
   <div class="form-actions">
-    <%= link_to 'Cancel', pages_path, :class => "button grey danger"%>
+    <% if controller.action_name == "edit" %>
+      <%= link_to 'Cancel', page_path(@page), :class => "button grey danger"%>
+    <% else %>
+      <%= link_to 'Cancel', pages_path, :class => "button grey danger"%>
+    <% end %>
     <%= f.button "Submit", :class => "button green" %>
   </div>
 <% end %>
