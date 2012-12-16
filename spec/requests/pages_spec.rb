@@ -41,7 +41,7 @@ describe "Page" do
 
         page.should have_content(entry.title)
         page.should have_content(entry.user.full_name)
-        page.should have_content("Created:")
+        page.should have_content("By: #{entry.user.full_name}, authored")
         page.should have_content("def some code")
         page.should have_link("Edit")
 
@@ -142,6 +142,24 @@ describe "Page" do
 
         page.should have_content("Initial Creation")
         page.should have_content(user.full_name)
+      end
+    end
+  end
+
+  describe "diff" do
+    context "given there is diff" do
+      it "displays the diff of the page" do
+        visit new_page_path
+
+        fill_in("page_title", :with => "Super Title")
+        fill_in("page_content", :with => "#Some Awesome Markdown\r\n###Smaller Title")
+        click_button("Submit")
+
+        click_link("History")
+        click_link("View Diff")
+
+        page.should have_content("+#Some Awesome Markdown")
+        page.should have_content("Diff of History:")
       end
     end
   end

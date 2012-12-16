@@ -88,7 +88,18 @@ class PagesController < ApplicationController
 
   def history
     @page = Page.find(params[:id])
-    @histories = History.where(:page_id => params[:id])
+    @histories = History.where(:page_id => params[:id]).order("created_at DESC").group_by{ |item| item.created_at.to_date }
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def diff
+    @history = History.find(params[:id])
+
+    @diff = Diffy::Diff.new(@history.previous_content, @history.current_content, :include_plus_and_minus_in_html => true).to_s(:html_simple)
+
 
     respond_to do |format|
       format.html
