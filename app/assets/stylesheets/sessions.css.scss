@@ -1,29 +1,8 @@
+@import "mixins";
+
 #container{
   &.sessions, &.registrations, &.passwords{
-    padding:0px;
     width:400px;
-    h2{
-      font-size:20px;
-      margin-bottom:10px;
-      padding:10px;
-      font-weight:bold;
-      color:#3A3A4A;
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-      border-bottom: 3px solid #E2E2E2;
-      -webkit-box-shadow: inset 0px 0px 1px 1px #A8A8A8;
-      box-shadow: inset 0px 0px 1px 1px #A8A8A8;
-      background: #f5f6f6; /* Old browsers */
-      background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 0%, #b8bac6 49%, #dddfe3 100%, #f5f6f6 100%); /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f6f6), color-stop(0%,#dbdce2), color-stop(49%,#b8bac6), color-stop(100%,#dddfe3), color-stop(100%,#f5f6f6)); /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(top, #f5f6f6 0%,#dbdce2 0%,#b8bac6 49%,#dddfe3 100%,#f5f6f6 100%); /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(top, #f5f6f6 0%,#dbdce2 0%,#b8bac6 49%,#dddfe3 100%,#f5f6f6 100%); /* Opera 11.10+ */
-      background: -ms-linear-gradient(top, #f5f6f6 0%,#dbdce2 0%,#b8bac6 49%,#dddfe3 100%,#f5f6f6 100%); /* IE10+ */
-      background: linear-gradient(to bottom, #f5f6f6 0%,#dbdce2 0%,#b8bac6 49%,#dddfe3 100%,#f5f6f6 100%); /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 ); /* IE6-9 */
-    }
-    form{
-      margin:10px
-    }
     input{
       width: 100%;
       &#user_remember_me{
@@ -31,7 +10,7 @@
       }
     }
     div{
-      margin-bottom:10px;
+      margin-bottom:$item-spacing;
       &:last-child{
         margin-bottom:0px;
       }
