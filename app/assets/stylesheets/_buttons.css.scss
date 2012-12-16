@@ -1,0 +1,44 @@
+html{
+  .button{
+    font-family: $fonts;
+    padding: 8px 15px;
+    line-height: normal;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    text-shadow: -1px -1px 0 #333;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border: 1px solid;
+    &.grey{
+      @include whiteSmoke-gradient;
+      color: #666;
+      text-shadow: 0 1px rgba(255, 255, 255, 0.9);
+      border-color: #DDD;
+      border-bottom-color: #BBB;
+    }
+    &.green{
+      @include green-gradient;
+      color: white;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+      border-color: #74BB5A;
+      border-bottom-color: #509338;
+      a{
+        color:white;
+      }
+    }
+    &.danger{
+      color: #900;
+    }
+    &.square{
+      padding: 0px  1px;
+    }
+    &.right{
+      float:right;
+      margin-top:-4px;
+    }
+  }
+}

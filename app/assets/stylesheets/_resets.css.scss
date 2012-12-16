@@ -1,0 +1,36 @@
+/* resets */
+
+h2{
+  &.title-bar{
+    margin:0;
+    padding:0;
+  }
+}
+
+#header{
+  .wrapper{
+    h3{
+      margin:0;
+      padding:0;
+    }
+  }
+}
+
+h3{
+  &.sub-title{
+    margin:0;
+    padding:0;
+  }
+}
+
+ul{
+  &.sub-list{
+    list-style:none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.sessions, .registrations, .passwords{
+  padding:0px;
+}
