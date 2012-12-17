@@ -102,4 +102,12 @@ html{
       }
     }
   }
+  footer{
+    width: $page-width - 60px;
+    margin: 0px auto;
+    p{
+      float: left;
+      padding-right: $item-spacing;
+    }
+  }
 }
