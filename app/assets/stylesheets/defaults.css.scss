@@ -6,7 +6,6 @@ html{
   font-family: $fonts;
   background-color: $light;
   a{
-    line-height:25px;
     color:black;
     text-decoration:none;
   }
@@ -42,10 +41,11 @@ html{
   form, .formtastic{
     margin:$item-spacing;
   }
-  #container{
+  .container{
     @include shadow(0,0,1px,1px,#a8a8a8,inset);
     margin:0px auto;
     width: $page-width;
+    min-height: 600px;
     border: $border-thick;
     border-radius: 5px;
     background: white;
@@ -84,14 +84,18 @@ html{
       .wrapper{
         width: $page-width;
         margin:0px auto;
-        h3{
-          display:inline-block;
-          font-weight:bold;
-          text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-          line-height:45px;
-          font-size:20px;
-          a{
-            color: $light;
+        a{
+          &.logo{
+            float:left;
+            img{
+              width: 95px;
+              margin-top: 5px;
+            }
+          }
+        }
+        img{
+          &.build-status{
+            margin:16px 0 0 $item-spacing;
           }
         }
         .form-actions{
@@ -104,7 +108,9 @@ html{
   }
   footer{
     width: $page-width - 60px;
-    margin: 0px auto;
+    margin: 10px auto 0;
+    height: 45px;
+    margin:0px auto;
     p{
       float: left;
       padding-right: $item-spacing;

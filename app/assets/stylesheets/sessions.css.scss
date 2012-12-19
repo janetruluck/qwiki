@@ -1,7 +1,8 @@
 @import "mixins";
 
-#container{
+.container{
   &.sessions, &.registrations, &.passwords{
+    min-height: auto;
     width:400px;
     input{
       width: 100%;
