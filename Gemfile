@@ -10,6 +10,7 @@ gem 'devise'
 gem 'gravatar-ultimate'
 gem 'diffy'
 gem 'acts-as-taggable-on'
+gem 'unicorn'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
