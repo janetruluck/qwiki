@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'gravatar-ultimate'
 gem 'diffy'
+gem 'acts-as-taggable-on'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
