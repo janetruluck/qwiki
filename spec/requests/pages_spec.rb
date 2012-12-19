@@ -54,7 +54,7 @@ describe "Page" do
       it "displays a message to add pages" do
         visit pages_path
 
-        page.should have_content("Click Here to Add Your First Page!")
+        page.has_css?("empty")
 
         current_path.should == pages_path
       end
