@@ -25,7 +25,6 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'guard-bundler'
-  gem 'thin'
 end
 
 group :development, :test do
