@@ -14,6 +14,7 @@
   <%= f.inputs do %>
     <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
     <%= f.input :title %>
+    <%= f.input :tag_list, :label => "Tags", :placeholder => "seperated by comma" %>
     <%= f.input :content %>
   <% end %>
 

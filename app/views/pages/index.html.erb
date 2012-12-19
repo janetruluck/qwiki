@@ -1,35 +1,51 @@
 <h2 class="title-bar">
   Pages Directory
+  <%= "Viewing pages tagged with: #{@tag}" if @tag %>
   <%= link_to 'New Page', new_page_path, :class => "button green right" %>
 </h2>
 
 <div class="contents">
-  <% if Page.all.empty? %>
-    <div class="empty">
-      Click Here to Add Your First Page!
-    </div>
-  <% else %>
-    <ul id="directory" class="sub-list">
-    <% @pages.each do |page| %>
-      <li>
-      <%= image_tag Gravatar.new(page.user.email).image_url %>
-      <div class="information">
-        <div class="title">
-          <%= link_to page.title, page %>
-        </div>
-        <div class="details">
-          By: <%= page.user.full_name %>, authored on
-          <%= time_tag(page.created_at) %>
-        </div>
+  <div class="left">
+    <% if Page.all.empty? %>
+      <div class="empty">
+        <%= image_tag "arrow.png" %>
       </div>
-      <div class="actions">
-        <%= link_to 'View', page, :class => "button grey" %>
-        <%= link_to 'Edit', edit_page_path(page), :class => "button grey" %>
-        <%= link_to 'Remove', page, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button grey danger" %>
-      </div>
-      <div class ="clear">
-      </li>
+    <% else %>
+      <ul id="directory" class="sub-list">
+      <% @pages.each do |page| %>
+        <li>
+        <%= image_tag Gravatar.new(page.user.email).image_url %>
+        <div class="information">
+          <div class="title">
+            <%= link_to page.title, page %>
+          </div>
+          <div class="details">
+            By: <%= page.user.full_name %>, authored on
+            <%= time_tag(page.created_at) %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= link_to 'View', page, :class => "button grey" %>
+          <%= link_to 'Remove', page, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button grey danger" %>
+        </div>
+        <div class ="clear">
+        </li>
+      <% end %>
+      </ul>
     <% end %>
-    </ul>
+  </div>
+  <% unless Page.all.empty? %>
+  <div class="container right">
+      <h2 class="title-bar">Tags</h2>
+      <div class="contents">
+        <% tag_cloud Page.tag_counts, %w[s m l] do |tag, css_class| %>
+          <div class="tag">
+            <span><%= tag.count %></span>
+            <%= link_to tag.name, tags_path(tag.name) %>
+          </div><br/>
+        <% end %>
+      </div>
+  </div>
   <% end %>
+  <div class="clear"></div>
 </div>

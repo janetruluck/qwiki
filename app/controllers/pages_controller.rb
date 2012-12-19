@@ -1,8 +1,12 @@
 class PagesController < ApplicationController
   # GET /pages
-  # GET /pages.json
   def index
-    @pages = Page.all
+    if params[:tag]
+      @tag   = params[:tag]
+      @pages = Page.tagged_with(@tag)
+    else
+      @pages = Page.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,7 +14,6 @@ class PagesController < ApplicationController
   end
 
   # GET /pages/1
-  # GET /pages/1.json
   def show
     @page = Page.find(params[:id])
 
@@ -20,7 +23,6 @@ class PagesController < ApplicationController
   end
 
   # GET /pages/new
-  # GET /pages/new.json
   def new
     @page = Page.new
 
@@ -35,7 +37,6 @@ class PagesController < ApplicationController
   end
 
   # POST /pages
-  # POST /pages.json
   def create
     @page = Page.new(params[:page])
 
@@ -54,7 +55,6 @@ class PagesController < ApplicationController
   end
 
   # PUT /pages/1
-  # PUT /pages/1.json
   def update
     @page = Page.find(params[:id])
 
@@ -76,7 +76,6 @@ class PagesController < ApplicationController
   end
 
   # DELETE /pages/1
-  # DELETE /pages/1.json
   def destroy
     @page = Page.find(params[:id])
     @page.destroy
@@ -99,7 +98,6 @@ class PagesController < ApplicationController
     @history = History.find(params[:id])
 
     @diff = Diffy::Diff.new(@history.previous_content, @history.current_content, :include_plus_and_minus_in_html => true).to_s(:html_simple)
-
 
     respond_to do |format|
       format.html
