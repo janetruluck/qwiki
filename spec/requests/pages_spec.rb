@@ -21,6 +21,35 @@ describe "Page" do
       end
     end
 
+    context "given there is a page with tags" do
+      let!(:entry) { create(:page, :user => user, :tag_list => "tag1, tag2") }
+
+      it "displays a list of available Wiki Pages" do
+        visit pages_path
+
+        page.should have_content(entry.title)
+        page.should have_content(entry.user.full_name)
+
+        current_path.should == pages_path
+      end
+
+      it "allows filtering by tag" do
+        visit pages_path
+
+        page.should have_content("tag1")
+        page.should have_content(entry.title)
+        page.should have_content(entry.user.full_name)
+
+        click_link("tag1")
+
+        page.should have_content(entry.title)
+        page.should have_content(entry.user.full_name)
+
+
+        current_path.should == tags_path("tag1")
+      end
+    end
+
     context "given there is not a page" do
       it "displays a message to add pages" do
         visit pages_path
