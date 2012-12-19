@@ -1,7 +1,7 @@
 <section id="header">
   <div class="wrapper">
-    <h3><a href="<%= root_path %>">Qwiki</a></h3>
-    <img src="https://travis-ci.org/jasontruluck/qwiki.png"/>
+    <a href="<%= root_path %>" class="logo"><%= image_tag "logo-light.png" %></a>
+    <img class="build-status" src="https://travis-ci.org/jasontruluck/qwiki.png"/>
     <% if user_signed_in? %>
       <div class="form-actions">
         <%= link_to 'Home', root_path, :class => "button grey" %>
